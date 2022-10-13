@@ -1,17 +1,23 @@
-read -p "Enter String: " str
+input="file.txt"
 
-N=${#str}
-
-for((i=${N-1}; i>=0; i--)) 
+while IFS= read -r str
 do
-revstr=$revstr${str:$i:1}
-done
 
-if [[ "$str" == "$revstr" ]]
-then
-echo "${str} - is a palindrome."
+  revstr=""
+  N=${#str}
 
-else
-echo "${str} - is not a palindrome."
+  for((i=${N-1}; i>=0; i--)) 
+  do
+   revstr=$revstr${str:$i:1}
+  done
 
-fi
+  if [[ "$str" == "$revstr" ]]
+  then
+    echo "${str} - is a palindrome."
+
+  else
+    echo "${str} - is not a palindrome."
+
+  fi
+
+done < "$input"
