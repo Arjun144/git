@@ -2,7 +2,7 @@ input="file.txt"
 
 while IFS= read -r str
 do
-  
+
   revstr=""
   N=${#str}
 
@@ -14,10 +14,10 @@ do
   if [[ "$str" == "$revstr" ]]
   then
     echo "${str} - is a palindrome."
-    
+
   else
     echo "${str} - is not a palindrome."
-    
+
   fi
-  
+
 done < "$input"
